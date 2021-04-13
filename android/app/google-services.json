@@ -10,7 +10,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:1002480327063:android:18e6ddb60d7ee362e8ccd2",
         "android_client_info": {
-          "package_name": "com.login"
+          "package_name": "com.safetyhub"
         }
       },
       "oauth_client": [
@@ -18,7 +18,7 @@
           "client_id": "1002480327063-nqj91rn7ii5h0m3cd3g86gcsg2rr37ud.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.login",
+            "package_name": "com.safetyhub",
             "certificate_hash": "47d2c98d37747df8f321d295e2a064e384146e35"
           }
         },
