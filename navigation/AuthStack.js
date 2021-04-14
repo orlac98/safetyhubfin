@@ -13,7 +13,6 @@ import ConstructionPreview from '../screens/ConstructionPreview';
 import TaskList from '../screens/TaskList';
 import EditList from '../screens/EditList';
 import TasksScreen from '../screens/TasksScreen';
-import { GoogleSignin } from "@react-native-community/google-signin";
 
 const Stack = createStackNavigator();
 
@@ -31,10 +30,10 @@ const AuthStack = () => {
       }
     }); 
 
-    GoogleSignin.configure({
-      webClientId:
-        "1002480327063-aophnq4itar2toef00qaa5e34ismqkc0.apps.googleusercontent.com",
-    });
+    // GoogleSignin.configure({
+    //   webClientId:
+    //     "1002480327063-aophnq4itar2toef00qaa5e34ismqkc0.apps.googleusercontent.com",
+    // });
   }, []);
 //if app is launching for first time onboarding screens will show
 //if app has launched already it will go straight to login screen 

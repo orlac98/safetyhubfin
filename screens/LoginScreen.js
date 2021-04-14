@@ -9,13 +9,12 @@ import {
 } from "react-native";
 import FormInput from "../components/FormInput";
 import FormButton from "../components/FormButton";
-import SocialButton from "../components/SocialButton";
 import { AuthContext } from "../navigation/AuthProvider";
 
 const LoginScreen = ({ navigation }) => {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
-  const { login, googleLogin } = useContext(AuthContext);
+  const { login } = useContext(AuthContext);
 
   return (
     <View style={styles.container}>
@@ -52,22 +51,7 @@ const LoginScreen = ({ navigation }) => {
         }}
       />
 
-      {/* <TouchableOpacity style={styles.forgotButton} onPress={() => {}}>
-        <Text style={styles.navButtonText}>Forgot Password?</Text>
-      </TouchableOpacity> */}
-
-
-      {Platform.OS === "android" ? (
-        <View>
-          <SocialButton
-            buttonTitle="Sign In with Google"
-            btnType="google"
-            color="#fd5f57"
-            backgroundColor="#fff"
-            onPress={() => googleLogin()}
-          />
-        </View>
-      ) : null}
+     
 
       <TouchableOpacity
         style={styles.forgotButton}

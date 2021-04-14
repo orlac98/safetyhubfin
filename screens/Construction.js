@@ -26,8 +26,6 @@ import {
 
 const Construction = () => {
   const { firestore, auth } = firebaseSetup();
-//   const { user, logout } = useContext(AuthContext);
-//   const [form, setForm] = useState(null);
   const [name, setName] = useState("");
   const [date, setDate] = useState("");
   const [address, setAddress] = useState("");

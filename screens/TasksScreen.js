@@ -11,7 +11,6 @@ import { Ionicons } from "@expo/vector-icons";
 import { Octicons } from "@expo/vector-icons";
 import { FAB } from "react-native-paper";
 import firebaseSetup from "../database/firebaseDb";
-import { AuthContext } from "../navigation/AuthProvider";
 import {
   onSnapshot,
   addDoc,

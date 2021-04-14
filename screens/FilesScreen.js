@@ -10,13 +10,7 @@ import { Platform } from "react-native";
 import DocumentPicker from "react-native-document-picker";
 import RNFetchBlob from "rn-fetch-blob";
 import firebaseSetup from "../database/firebaseDb";
-import AuthStack from "../navigation/AuthStack";
-import firestore from "@react-native-firebase/firestore";
-import { color } from "react-native-reanimated";
-import ColourSelector from "../components/ColourSelector";
-import firebase from "@react-native-firebase/app";
-import { remove } from "lodash";
-import ScrollableTabView, { ScrollableTabBar } from 'react-native-scrollable-tab-view';
+
 import {
   addDoc,
   removeDoc,
@@ -26,11 +20,7 @@ import {
 import { TouchableOpacity } from "react-native-gesture-handler";
 
 const FilesScreen = (props) => {
-  // firebase.auth().onAuthStateChanged((user) => {
-  //   if (user) {
-  //     console.log("User email: ", user.email);
-  //   }
-  // });
+
   const { storage, database } = firebaseSetup();
   const [filesList, setFilesList] = React.useState([]);
   const [formsList, setFormsList] = React.useState([]);
@@ -135,41 +125,26 @@ const FilesScreen = (props) => {
   }
   const uniquKey = database().ref().child(`allFiles`).push().key;
 
-  function saveFileToRealtimeDatabase(downloadURL, file) {
-    // const uniquKey = database().ref().push().key;
-    database().ref(`allFiles/${user.uid}/${uniquKey}`).update({
-      fileName: file.name,
-      fileType: file.type,
-      fileURL: downloadURL,
-      // userId: `${user.uid}`,
-    });
-  }
+  // function saveFileToRealtimeDatabase(downloadURL, file) {
+  //   // const uniquKey = database().ref().push().key;
+  //   database().ref(`allFiles/${user.uid}/${uniquKey}`).update({
+  //     fileName: file.name,
+  //     fileType: file.type,
+  //     fileURL: downloadURL,
+  //     // userId: `${user.uid}`,
+  //   });
+  // }
 
-  const deleteFile = () => {
-    // const uniquKey = database().ref(`allFiles/${user.uid}/${uniquKey}`).key;
-    database()
-      .ref(`allFiles/${user.uid}`)
-      .remove()
-      .then(() => {})
-      .catch((err) => {
-        console.log(err);
-      });
-  };
-
-  // React.useEffect(() => {
-  //   //this is for development type
-  //   setFilesList([]);
-  //   //end
-
-  //   const onChildAdded = database()
-  //     .ref(`allFiles/${user.uid}/`)
-  //     .on("child_added", (snapshot) => {
-  //       let helperArr = [];
-  //       helperArr.push(snapshot.val());
-  //       setFilesList((files) => [...files, ...helperArr]);
+  // const deleteFile = () => {
+  //   database()
+  //     .ref(`allFiles/${user.uid}`)
+  //     .remove()
+  //     .then(() => {})
+  //     .catch((err) => {
+  //       console.log(err);
   //     });
-  //   return () => database().ref(`allFiles`).off("child_added", onChildAdded);
-  // }, []);
+  // };
+
   React.useEffect(() => {
     onSnapshot(
       toDoItemsRef,
@@ -192,26 +167,21 @@ const FilesScreen = (props) => {
 
   React.useEffect(() => {
     onSnapshot(formRef, (newToDoItems) => {
-      console.log("this is form", newToDoItems);
       setFormsList(newToDoItems);
     });
   }, []);
 
   React.useEffect(() => {
     onSnapshot(formRefC, (newToDoItems) => {
-      console.log("this is form", newToDoItems);
       setFormsListC(newToDoItems);
     });
   }, []);
 
   React.useEffect(() => {
     onSnapshot(formRefH, (newToDoItems) => {
-      console.log("this is form", newToDoItems);
       setFormsListH(newToDoItems);
     });
   }, []);
-
-  console.log("this is file", filesList);
 
 
   const tabButton = (tab, title) => {
@@ -258,10 +228,11 @@ const FilesScreen = (props) => {
       <View
         style={{
           flexDirection: "row",
-          justifyContent: "space-between"}} 
+          justifyContent: "space-between",
+          }} 
         >
         
-        {tabButton(0, "Documents")}
+          {tabButton(0, "Documents")}
           {tabButton(1, "Asbestos")}
           {tabButton(2, "Construction")}
           {tabButton(3, "Height")}
@@ -297,8 +268,11 @@ const FilesScreen = (props) => {
                   <Icon style={styles.icon} active name="trash" />
                 </Button>
               </CardView>
+              
             </View>
+            
           ))}
+         
         {tabIndex == 1 &&
           formsList.map((item, index) => (
             <View style={styles.row}>
@@ -418,10 +392,10 @@ const FilesScreen = (props) => {
           ))}
           
       </Content>
-     
       <View>
         <FAB style={styles.fab} large icon="plus" onPress={chooseFile} />
       </View>
+     
     </Container>
   );
 };
@@ -455,6 +429,7 @@ const styles = StyleSheet.create({
   },
   text: {
     color: Colours.white,
+    fontFamily: "Comfortaa-Bold",
   },
   row: {
     flexDirection: "row",

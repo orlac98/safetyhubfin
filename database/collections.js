@@ -13,8 +13,6 @@ export const onSnapshot = (ref, callback, options) => {
 export const addDoc = (ref, { id, ...data }) => {
   const doc = id ? ref.doc(id) : ref.doc();
   doc.set(data).then(() => {
-    console.log("add new item");
-    alert("Saved Successfully");
   });
 };
 
@@ -23,7 +21,6 @@ export const removeDoc = (ref, id) => {
     .doc(id)
     .delete()
     .then(() => {
-      console.log(`Removed item: ${id}`);
     });
 };
 
@@ -32,6 +29,5 @@ export const updateDoc = (ref, id, data) => {
     .doc(id)
     .set(data)
     .then(() => {
-      console.log(`Updated item: ${id}`);
     });
 };

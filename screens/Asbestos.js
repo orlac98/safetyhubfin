@@ -1,4 +1,4 @@
-import React, { Component, useContext } from "react";
+import React, {  useContext } from "react";
 import { useState } from "react";
 import { StyleSheet } from "react-native";
 import {
@@ -12,13 +12,9 @@ import {
   Text,
   H3,
 } from "native-base";
-import { addAsbestosform } from "../database/forms";
-import storage from "@react-native-firebase/storage";
-import firestore from "@react-native-firebase/firestore";
 import "firebase/firestore";
 import { AuthContext } from "../navigation/AuthProvider";
 import firebaseSetup from "../database/firebaseDb";
-
 import {
   addDoc,
   removeDoc,

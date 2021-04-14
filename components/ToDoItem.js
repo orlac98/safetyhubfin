@@ -60,6 +60,8 @@ const ToDoItem = ({
       </TouchableOpacity>
     )
   }
+
+  
   return (
     <View style={styles.container}>
       <View styles={{ flexDirection: "row", flex: 1 }}>

@@ -14,7 +14,6 @@ import {
 H1
 } from "native-base";
 import "firebase/firestore";
-import { AuthContext } from "../navigation/AuthProvider";
 import firebaseSetup from "../database/firebaseDb";
 
 import {
@@ -26,8 +25,6 @@ import {
 
 const Height = () => {
   const { firestore, auth } = firebaseSetup();
-//   const { user, logout } = useContext(AuthContext);
-//   const [form, setForm] = useState(null);
   const [name, setName] = useState("");
   const [address, setAddress] = useState("");
   const [location, setLocation] = useState("");

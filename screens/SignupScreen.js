@@ -3,12 +3,10 @@ import {
   View,
   Text,
   TouchableOpacity,
-  Platform,
   StyleSheet,
 } from "react-native";
 import FormInput from "../components/FormInput";
 import FormButton from "../components/FormButton";
-import SocialButton from "../components/SocialButton";
 import { AuthContext } from "../navigation/AuthProvider";
 
 const SignupScreen = ({ navigation }) => {
@@ -16,6 +14,7 @@ const SignupScreen = ({ navigation }) => {
   const [password, setPassword] = useState();
   const [confirmPassword, setConfirmPassword] = useState();
   const { register } = useContext(AuthContext);
+ 
 
   return (
     <View style={styles.container}>
@@ -63,7 +62,7 @@ const SignupScreen = ({ navigation }) => {
         <Text style={styles.color_textPrivate}>
           By registering, you confirm that you accept our{" "}
         </Text>
-        <TouchableOpacity onPress={() => alert("Terms Clicked!")}>
+        <TouchableOpacity>
           <Text style={[styles.color_textPrivate, { color: "#e88832" }]}>
             Terms of service
           </Text>
@@ -74,17 +73,6 @@ const SignupScreen = ({ navigation }) => {
         </Text>
       </View>
 
-      {Platform.OS === "android" ? (
-        <View>
-          <SocialButton
-            buttonTitle="Sign Up with Google"
-            btnType="google"
-            color="#fd5f57"
-            backgroundColor="#ffff"
-            onPress={() => {}}
-          />
-        </View>
-      ) : null}
 
       <TouchableOpacity
         style={styles.navButton}

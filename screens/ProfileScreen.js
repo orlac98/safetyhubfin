@@ -4,15 +4,12 @@ import Colours from "../constants/Colours";
 import {
   View,
   Text,
-  Button,
   StyleSheet,
-  ActivityIndicator,
 } from "react-native";
-import { Avatar, Title, Caption, TouchableRipple } from "react-native-paper";
+import {  Title, Caption } from "react-native-paper";
 import FormButton from "../components/FormButton";
 import { AuthContext } from "../navigation/AuthProvider";
 import firebaseSetup from "../database/firebaseDb";
-import firebase from "@react-native-firebase/app";
 
 import {
   addDoc,
@@ -63,12 +60,6 @@ const ProfileScreen = ({ navigation }) => {
   const [formsListH, setFormsListH] = React.useState([]);
   const [email, setEmail] = React.useState("");
 
-  firebase.auth().onAuthStateChanged((user) => {
-    if (user) {
-      console.log("User email: ", user.email);
-      setEmail(user.email);
-    }
-  });
 // connecting to firebase to display amount of files/forms uploaded
   const toDoItemsRef = firestore()
     .collection("users")
@@ -100,7 +91,7 @@ const ProfileScreen = ({ navigation }) => {
 
   React.useEffect(() => {
     onSnapshot(formRef, (newToDoItems) => {
-      console.log("this is form", newToDoItems);
+    
       setFormsList(newToDoItems);
     });
   }, []);
@@ -108,14 +99,13 @@ const ProfileScreen = ({ navigation }) => {
 
   React.useEffect(() => {
     onSnapshot(formRefC, (newToDoItems) => {
-      console.log("this is form", newToDoItems);
+   
       setFormsListC(newToDoItems);
     });
   }, []);
 
   React.useEffect(() => {
     onSnapshot(formRefH, (newToDoItems) => {
-      console.log("this is form", newToDoItems);
       setFormsListH(newToDoItems);
     });
   }, []);
@@ -125,22 +115,20 @@ const ProfileScreen = ({ navigation }) => {
       <View
         style={{
           lineHeight: 26,
-          backgroundColor: "#FDF5F4",
           flexDirection: "row",
-          marginTop: 15,
-          marginLeft: 40,
           textAlign: 'center'
         }}
       >
         
-        <View style={{ marginLeft: 10 }}>
+        <View style={styles.container}>
           <Title
             style={[
               styles.title,
               {
                 marginTop: 15,
                 marginBottom: 5,
-                color: Colours.grey
+                color: Colours.grey,
+                fontFamily: "Comfortaa-Bold",
               },
             ]}
           >
@@ -204,9 +192,6 @@ const ProfileScreen = ({ navigation }) => {
      
 
       <View style={styles.container}>
-        {/* <Text style={[styles.text, { alignSelf: "center" }]}>
-          Welcome {user.email}
-        </Text> */}
         <FormButton buttonTitle="Logout" onPress={() => logout()} />
       </View>
     </View>
@@ -220,7 +205,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     marginBottom: 25,
     lineHeight: 26,
-    backgroundColor: "#FDF5F4",
     flex: 1,
   },
   title: {
@@ -232,13 +216,13 @@ const styles = StyleSheet.create({
     fontSize: 14,
     lineHeight: 14,
     fontWeight: "500",
+    
   },
   row: {
     flexDirection: "row",
     marginBottom: 10,
     marginTop: 6,
     lineHeight: 26,
-    backgroundColor: "#FDF5F4",
   },
   infoBoxWrapper: {
     borderBottomColor: "#dddddd",
@@ -254,7 +238,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     lineHeight: 26,
-    backgroundColor: "#FDF5F4",
   },
   menuWrapper: {
     marginTop: 10,
@@ -264,7 +247,6 @@ const styles = StyleSheet.create({
     paddingVertical: 15,
     paddingHorizontal: 30,
     lineHeight: 26,
-    backgroundColor: "#FDF5F4",
   },
   menuItemText: {
     color: "#777777",
@@ -273,6 +255,7 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 1,
-    backgroundColor: "#FDF5F4",
+    backgroundColor: "#ffff",
+
   },
 });

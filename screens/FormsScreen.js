@@ -1,15 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   View,
-  Alert,
   Text,
   StyleSheet,
-  Button,
   SafeAreaView,
 } from "react-native";
 import CardView from "react-native-cardview";
-import firebase from "../database/firebaseDb";
-import { AntDesign } from "@expo/vector-icons";
 import Colours from "../constants/Colours";
 
 const FormsScreen = ({ navigation }) => {
@@ -63,56 +59,7 @@ const FormsScreen = ({ navigation }) => {
               Work at Height
             </Text>
           </CardView>
-          {/* <CardView
-              cardElevation={7}
-              cardMaxElevation={7}
-              cornerRadius={20}
-              style={styles.card}
-            >
-              <Text style={styles.text}>Lifting Equiptment</Text>
-            </CardView>
-             */}
-        </View>
-        {/* <View flexDirection="row">
-            <CardView
-              cardElevation={7}
-              cardMaxElevation={7}
-              cornerRadius={20}
-              style={styles.card}
-            >
-              <Text style={styles.text}
-                onPress={() =>
-                navigation.navigate("Quarries")
-              }>Quarries</Text>
-            </CardView>
-            <CardView
-              cardElevation={7}
-              cardMaxElevation={7}
-              cornerRadius={20}
-              style={styles.card}
-            >
-              <Text style={styles.text}>Covid-19</Text>
-            </CardView>
-          </View>
-          <View flexDirection="row"  >
-            
-            <CardView
-              cardElevation={7}
-              cardMaxElevation={7}
-              cornerRadius={20}
-              style={styles.card}
-            >
-              <Text style={styles.text}>Weekly Checklist</Text>
-            </CardView>
-            <CardView
-              cardElevation={7}
-              cardMaxElevation={7}
-              cornerRadius={20}
-              style={styles.card}
-            >
-              <Text style={styles.text}>Tool Box Talk</Text>
-            </CardView>
-          </View> */}
+        </View>  
       </View>
     </SafeAreaView>
   );
@@ -150,6 +97,7 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     fontSize: 16,
     justifyContent: "space-between",
+    fontFamily: "Comfortaa-Bold",
   },
   instructions: {
     textAlign: "center",
