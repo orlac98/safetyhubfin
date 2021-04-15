@@ -56,7 +56,7 @@ const Height = () => {
     };
     addDoc(formRefH, data);
   };
-
+//form inputs are saved to database collection(height) under above headings 
   return (
     <Container style={styles.container}>
       <Content>

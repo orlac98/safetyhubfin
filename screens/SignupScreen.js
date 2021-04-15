@@ -9,6 +9,8 @@ import FormInput from "../components/FormInput";
 import FormButton from "../components/FormButton";
 import { AuthContext } from "../navigation/AuthProvider";
 
+
+//authcontext import allows us to use the functionallity for the signup that is in authprovider file
 const SignupScreen = ({ navigation }) => {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
@@ -53,7 +55,7 @@ const SignupScreen = ({ navigation }) => {
           if (email && password && confirmPassword) {
             register(email, password, confirmPassword);
           } else {
-            alert("please fill all fields");
+            alert("please fill all fields, Password must be 6 digits long");
           }
         }}
       />

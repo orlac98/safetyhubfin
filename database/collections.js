@@ -1,3 +1,5 @@
+
+//used for displaying documents in a collection 
 export const onSnapshot = (ref, callback, options) => {
   ref.onSnapshot((snapshot) => {
     let items = snapshot.docs.map((doc) => {
@@ -10,6 +12,7 @@ export const onSnapshot = (ref, callback, options) => {
   });
 };
 
+//will add document to collection and give it a id 
 export const addDoc = (ref, { id, ...data }) => {
   const doc = id ? ref.doc(id) : ref.doc();
   doc.set(data).then(() => {
@@ -17,6 +20,7 @@ export const addDoc = (ref, { id, ...data }) => {
   });
 };
 
+//functionality for deleting documents in a collection by id 
 export const removeDoc = (ref, id) => {
   ref
     .doc(id)
@@ -25,6 +29,7 @@ export const removeDoc = (ref, id) => {
     });
 };
 
+//functionality for updating documents in a collection by id 
 export const updateDoc = (ref, id, data) => {
   ref
     .doc(id)

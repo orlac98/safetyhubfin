@@ -5,7 +5,7 @@ import {AuthContext} from './AuthProvider';
 import AuthStack from './AuthStack';
 import AppStack from './AppStack';
 
-
+//route for user if user is authenticated or not 
 const Routes = () => {
 
     const {user, setUser} = useContext(AuthContext);

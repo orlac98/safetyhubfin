@@ -11,6 +11,8 @@ import FormInput from "../components/FormInput";
 import FormButton from "../components/FormButton";
 import { AuthContext } from "../navigation/AuthProvider";
 
+
+//authcontext import allows us to use the functionallity for the login that is in authprovider file
 const LoginScreen = ({ navigation }) => {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
@@ -39,7 +41,7 @@ const LoginScreen = ({ navigation }) => {
         iconType="lock"
         secureTextEntry={true}
       />
-
+      
       <FormButton
         buttonTitle="Sign In"
         onPress={() => {

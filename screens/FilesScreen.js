@@ -63,6 +63,7 @@ const FilesScreen = (props) => {
     }
     return path;
   }
+  // connecting to database collections to pull data from there and upload the documents from phone to collection files
   const toDoItemsRef = firestore()
     .collection("users")
     .doc(auth().currentUser.uid)
