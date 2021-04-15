@@ -13,6 +13,7 @@ export const onSnapshot = (ref, callback, options) => {
 export const addDoc = (ref, { id, ...data }) => {
   const doc = id ? ref.doc(id) : ref.doc();
   doc.set(data).then(() => {
+    // alert("Saved Successfully");
   });
 };
 

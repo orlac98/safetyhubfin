@@ -66,23 +66,23 @@ const Asbestos = () => {
             NOTIFICATION FORM TO BE USED FOR ANY WORK INVOLVING ASBESTOS
           </H3>
           <Item stackedLabel>
-            <Label>Date of Notification</Label>
+            <Label>Date of Notification:</Label>
             <Input value={date} onChangeText={setDate} />
           </Item>
           <Item stackedLabel>
-            <Label>Name of Notifier</Label>
+            <Label>Name of Notifier:</Label>
             <Input value={name} onChangeText={setName} />
           </Item>
           <Item stackedLabel>
-            <Label>Address</Label>
+            <Label>Address:</Label>
             <Input value={address} onChangeText={setAddress} />
           </Item>
           <Item stackedLabel>
-            <Label>Telephone</Label>
+            <Label>Telephone:</Label>
             <Input value={no} onChangeText={setNo} />
           </Item>
           <Item stackedLabel>
-            <Label>Eircode</Label>
+            <Label>Eircode:</Label>
             <Input value={code} onChangeText={setCode} />
           </Item>
           <Item stackedLabel>
@@ -110,7 +110,7 @@ const Asbestos = () => {
             </Label>
           </Item>
         </Form>
-        <Button block style={styles.button} onPress={() => addAsbestos()}>
+        <Button block style={styles.button} onPress={() =>  addAsbestos(alert("Saved Successfully"))}>
           <Text>Submit</Text>
         </Button>
       </Content>

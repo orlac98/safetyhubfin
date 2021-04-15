@@ -113,7 +113,7 @@ before the design process begins
             <Input value={position} onChangeText={setPosition} />
           </Item>
         </Form>
-        <Button block style={styles.button} onPress={() => addConstruction()}>
+        <Button block style={styles.button} onPress={() => addConstruction(alert("Saved Successfully"))}>
           <Text>Submit</Text>
         </Button>
       </Content>

@@ -105,7 +105,7 @@ const Height = () => {
             <Input value={signature} onChangeText={setSignature} />
           </Item>
         </Form>
-        <Button block style={styles.button} onPress={() => addHeight()}>
+        <Button block style={styles.button} onPress={() => addHeight(alert("Saved Successfully"))}>
           <Text>Submit</Text>
         </Button>
       </Content>

@@ -17,7 +17,7 @@ import {
   updateDoc,
   onSnapshot,
 } from "../database/collections";
-import Icon from "react-native-vector-icons/MaterialCommunityIcons";
+
 
 const ProfileScreen = ({ navigation }) => {
   const [loading, setLoading] = React.useState(true);
@@ -132,7 +132,7 @@ const ProfileScreen = ({ navigation }) => {
               },
             ]}
           >
-            { email ? email : "@Welcome"}
+            { user.email ? user.email : "@Welcome"}
           </Title>
           {/* <View style={styles.container}> */}
         <Text style={[styles.text, { alignSelf: "center" }]}>
